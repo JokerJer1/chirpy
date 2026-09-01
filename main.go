@@ -10,5 +10,7 @@ func main() {
 		Addr:    ":8080",
 		Handler: mux,
 	}
+	mux.Handle("/", http.FileServer(http.Dir(".")))
+
 	svr.ListenAndServe()
 }
